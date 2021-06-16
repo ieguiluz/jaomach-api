@@ -23,7 +23,8 @@ const ProductSchema: Schema = new Schema(
       type: Schema.Types.ObjectId, ref: 'Currency',
       required: true,
     },
-  }
+  },
+  { timestamps: true }
 );
 
 export default model<IProduct>("Product", ProductSchema);
