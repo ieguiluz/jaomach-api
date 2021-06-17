@@ -20,7 +20,8 @@ const ProductSchema: Schema = new Schema(
       required: true,
     },
     currency: {
-      type: Schema.Types.ObjectId, ref: 'Currency',
+      type: Schema.Types.ObjectId,
+      ref: 'Currency',
       required: true,
     },
   },

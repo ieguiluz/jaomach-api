@@ -4,6 +4,9 @@ import cors from "cors";
 import productRoutes from "./routes";
 import bodyParser from "body-parser";
 
+require ('./models/currency');
+require ('./models/product');
+
 const app: Express = express();
 
 const PORT: string | number = process.env.PORT || 4000;

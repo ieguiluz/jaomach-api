@@ -4,8 +4,22 @@ import Product from "./../../models/product";
 
 const getProducts = async (req: Request, res: Response): Promise<void> => {
   try {
-    const products: IProduct[] = await Product.find();
+    const products: IProduct[] = await Product.find().populate('currency');
     res.status(200).json({ products });
+  } catch (error) {
+    throw error;
+  }
+}
+
+const showProduct = async (req: Request, res: Response): Promise<void> => {
+  try {
+    const {
+      params: { id }
+    } = req;
+    const product: IProduct | null = await Product.findById(id).populate('currency');
+    res
+      .status(200)
+      .json({ product });
   } catch (error) {
     throw error;
   }
@@ -61,4 +75,4 @@ const updateProduct = async (req: Request, res: Response): Promise<void> => {
   }
 }
 
-export { getProducts, addProduct, updateProduct }
+export { getProducts, addProduct, updateProduct, showProduct }
