@@ -14,9 +14,9 @@ const getProducts = async (req: Request, res: Response): Promise<void> => {
 const showProduct = async (req: Request, res: Response): Promise<void> => {
   try {
     const {
-      params: { id }
+      params: { code }
     } = req;
-    const product: IProduct | null = await Product.findById(id).populate('currency');
+    const product: IProduct | null = await Product.findOne({ code }).populate('currency');
     res
       .status(200)
       .json({ product });
