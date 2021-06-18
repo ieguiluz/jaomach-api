@@ -72,4 +72,4 @@ const updateProduct = async (req: Request, res: Response): Promise<void> => {
   }
 }
 
-export { getProducts, addProduct, updateProduct, showProduct }
+export { getProducts, addProduct, updateProduct, showProduct };
