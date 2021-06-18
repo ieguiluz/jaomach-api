@@ -7,8 +7,8 @@ router.get("/products", getProducts);
 
 router.get("/products/:code", showProduct);
 
-router.post("/add-product", addProduct);
+router.post("/products", addProduct);
 
-router.put("/edit-product/:id", updateProduct);
+router.put("/products/:id", updateProduct);
 
 export default router;
