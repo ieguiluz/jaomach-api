@@ -38,14 +38,12 @@ const addProduct = async (req: Request, res: Response): Promise<void> => {
     });
 
     const newProduct: IProduct = await product.save();
-    const allProducts: IProduct[] = await Product.find();
 
     res
       .status(201)
       .json({
         message: "Product added",
         product: newProduct,
-        products: allProducts
       });
   } catch (error) {
     throw error;
@@ -61,14 +59,13 @@ const updateProduct = async (req: Request, res: Response): Promise<void> => {
 
     const updateProduct: IProduct | null = await Product.findByIdAndUpdate(
       { _id: id },
-      body
+      body,
+      { new: true }
     );
 
-    const allProducts: IProduct[] = await Product.find();
     res.status(200).json({
       message: "Product updated",
       product: updateProduct,
-      products: allProducts,
     });
   } catch (error) {
     throw error;
